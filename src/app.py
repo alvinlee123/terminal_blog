@@ -1,9 +1,10 @@
 from database import Database
+from menu import Menu
 from models.blog import Blog
 __author__ = 'alee'
 
 Database.initialize()
-
+'''
 blog = Blog(author="Alvin",
             title="Test",
             description="whatever")
@@ -15,3 +16,7 @@ blog.save_to_mongo()
 from_database = Blog.from_mongo(blog.id)
 print (from_database)
 print(blog.get_posts())
+'''
+menu=Menu()
+
+menu.run_menu()
