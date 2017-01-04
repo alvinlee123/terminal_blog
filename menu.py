@@ -12,15 +12,16 @@ class Menu(object):
         if self._user_has_account():
             print("Welcome back {}".format(self.user))
         else:
-            self._prompt_user_for_account
+            self._prompt_user_for_account()
         #if not, prompt them to create one
     def _user_has_account(self):
         blog = Database.find_one('blogs',{'author':self.user})
         if blog is not None:
-            self.user_blog= Blog.from_mongo(blog['id'])
+            self.user_blog = blog
             return True
         else:
             return False
+
 
     def _prompt_user_for_account(self):
         title = input("Enter Blog Title: ")
@@ -63,4 +64,3 @@ class Menu(object):
         posts = blog.get_posts()
         for post in posts:
             print("Date: {}, title: {}\n\n{}".format(post['created_date'],post['title'],post['content']))
-            d
